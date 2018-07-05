@@ -8,11 +8,14 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table (name="Paciente")
+@Table (name="paciente")
 public class Paciente implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -54,19 +57,16 @@ public class Paciente implements Serializable{
 	@Column(name="activo")
 	private boolean activo;
 	
+	@ManyToOne
+	@JoinColumn(name="idPlan")
+	private Plan plan;
 	
-	private Paciente paciente;
-	/*
-	@OneToMany(mappedBy="")
-	private List<Paciente> Pacientes;
-	*/
-	public Paciente() {
-		
+	public Paciente() {	
 	}
 
 	public Paciente(int nroDeAfiliado, String nombreYApellido, int edad, String tipoDNI, int dNI,
 			LocalDate fechaDeNacimiento, String sexo, int telefono, String direccion, String estadoCivil,
-			int cantidaDeHijosACargo, boolean activo, Paciente paciente) {
+			int cantidaDeHijosACargo, boolean activo) {
 		this.nroDeAfiliado = nroDeAfiliado;
 		this.nombreYApellido = nombreYApellido;
 		this.edad = edad;
@@ -79,7 +79,6 @@ public class Paciente implements Serializable{
 		this.estadoCivil = estadoCivil;
 		this.cantidaDeHijosACargo = cantidaDeHijosACargo;
 		this.activo = activo;
-		this.paciente = paciente;
 	}
 
 	public int getTelefono() {
@@ -178,16 +177,18 @@ public class Paciente implements Serializable{
 		this.activo = activo;
 	}
 
-	public Paciente getPaciente() {
-		return paciente;
-	}
-
-	public void setPaciente(Paciente paciente) {
-		this.paciente = paciente;
-	}
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	@Override
+	public String toString() {
+		return "Paciente [nroDeAfiliado=" + nroDeAfiliado + ", nombreYApellido=" + nombreYApellido + ", edad=" + edad
+				+ ", tipoDNI=" + tipoDNI + ", DNI=" + DNI + ", fechaDeNacimiento=" + fechaDeNacimiento + ", sexo="
+				+ sexo + ", telefono=" + telefono + ", direccion=" + direccion + ", estadoCivil=" + estadoCivil
+				+ ", cantidaDeHijosACargo=" + cantidaDeHijosACargo + ", activo=" + activo + ", paciente=";
+	}
+
+	
 	
 }

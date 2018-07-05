@@ -18,14 +18,25 @@ public class Turno implements Serializable{
 	@Column(name="Nro_turno")
 	private int nroTurno;
 	
+	@Column(name="FechaYHoraDeLlegada")
+	private LocalDateTime fechaYHoraDeLlegada;
+	
+	@Column(name="FechaYHoraDeInicioAtencion")
+	private LocalDateTime fechaYHoraInicioDeAtencion;
+	
+	@Column(name="Observaciones")
+	private String Observaciones;
+	
+	@Column(name="activo")
+	private boolean activo;
+	
 	@ManyToOne
 	@JoinColumn(name="Id_Paciente")
 	private Paciente paciente;
 	
-	@Column(name="FechaYHoraDeLlegada")
-	private LocalDateTime fechaYHoraDeLlegada;
+	@ManyToOne
+	@Column(name="IdPrestador")
+	private int idPrestador;
 	
-	@Column(name="FechaYHoraDeAtencion")
-	private LocalDateTime fechaYHoraDeAtencion;
 	
 }

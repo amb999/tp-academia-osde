@@ -16,7 +16,7 @@
 		<properties>
 		
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:10.3.3.4:3306/grupo_dos"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:10.3.3.14:3306/grupo_dos"/>
             <property name="javax.persistence.jdbc.user" value="grupoDos" />
 			<property name="javax.persistence.jdbc.password" value="grupoDos" />
 			
